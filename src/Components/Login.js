@@ -16,11 +16,21 @@ const Login = ({ title }) => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5001/api/login", {
+      const response = await axios.post("http://localhost:5001/api/user", {
         user_id,
       });
 
-      setSuccess(response.data.message);
+      if (response.data.success) {
+        // Save user data to localStorage
+        localStorage.setItem("user_name", response.data.user_name);
+        localStorage.setItem("user_id", user_id);
+        setSuccess(response.data.message);
+
+        // Redirect to MainPage
+        window.location.href = "/user_login/main";
+      } else {
+        setError(response.data.message);
+      }
     } catch (err) {
       setError(err.response?.data?.message || "Server connection failed.");
     }
