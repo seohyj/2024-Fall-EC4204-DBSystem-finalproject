@@ -193,7 +193,7 @@ const MyPage = () => {
 const styles = {
   container: {
     padding: "30px",
-    fontFamily: "Arial, sans-serif",
+    fontFamily: "Avenir, sans-serif",
     backgroundColor: "#f5f5f5",
   },
   title: {
