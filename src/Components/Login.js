@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const Login = ({ title }) => {
-  const [username, setUsername] = useState("");
+  const [user_id, setUsername] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -10,18 +10,15 @@ const Login = ({ title }) => {
     setError("");
     setSuccess("");
 
-    if (!username) {
+    if (!user_id) {
       setError("You must enter your ID to login.");
       return;
     }
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/users/login",
-        {
-          username,
-        }
-      );
+      const response = await axios.post("http://localhost:5001/api/login", {
+        user_id,
+      });
 
       setSuccess(response.data.message);
     } catch (err) {
@@ -35,7 +32,7 @@ const Login = ({ title }) => {
       <input
         type="text"
         placeholder="ID"
-        value={username}
+        value={user_id}
         onChange={(e) => setUsername(e.target.value)}
         style={styles.input}
       />
