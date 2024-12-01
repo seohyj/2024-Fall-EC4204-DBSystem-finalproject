@@ -30,6 +30,12 @@ const MyPage = () => {
     });
   };
 
+  // 팀 정보를 보기 좋게 파싱하는 함수
+  const formatTeamMembers = (membersString) => {
+    if (!membersString) return "";
+    return membersString.split(",").join(", ");
+  };
+
   // Fetch user-specific data
   useEffect(() => {
     // Fetch all reservations
@@ -41,13 +47,12 @@ const MyPage = () => {
         setReservations(response.data);
 
         // Calculate total fee
-        const total = response.data.reduce(
-          (sum, reservation) => sum + reservation.cost,
-          0
-        );
+        const total = response.data.reduce((sum, reservation) => {
+          const cost = parseFloat(reservation.cost) || 0;
+          return sum + cost;
+        }, 0);
         setTotalFee(total);
 
-        // Set the most recent reservation
         if (response.data.length > 0) {
           setRecentReservation(response.data[0]);
         }
@@ -132,8 +137,7 @@ const MyPage = () => {
               <strong>Space:</strong> {recentReservation.space_name}
             </p>
             <p>
-              <strong>Date:</strong> {formatDateTime(recentReservation.date)}{" "}
-              {/* formatDateTime 적용 */}
+              <strong>Date:</strong> {formatDateTime(recentReservation.date)}
             </p>
             <p>
               <strong>Cost:</strong> ${recentReservation.cost}
@@ -149,17 +153,23 @@ const MyPage = () => {
 
       {/* 팀 등록 */}
       <section style={styles.section}>
-        <h2 style={styles.subtitle}>Team Registration</h2>
+        <h2 style={styles.subtitle}>Team Information</h2>
         {teamInfo.length === 0 ? (
           <p style={styles.text}>You are not part of any team.</p>
         ) : (
-          <ul style={styles.list}>
+          <div>
             {teamInfo.map((team) => (
-              <li key={team.team_id}>
-                <strong>{team.team_name}:</strong> {team.team_members}
-              </li>
+              <div key={team.team_id} style={styles.card}>
+                <p>
+                  <strong>Team Name:</strong> {team.team_name}
+                </p>
+                <p>
+                  <strong>Members:</strong>{" "}
+                  {formatTeamMembers(team.team_members)}
+                </p>
+              </div>
             ))}
-          </ul>
+          </div>
         )}
         <button
           style={styles.button}
@@ -172,7 +182,9 @@ const MyPage = () => {
       {/* 총 비용 계산 */}
       <section style={styles.section}>
         <h2 style={styles.subtitle}>Total Fee</h2>
-        <p style={styles.text}>Your total reservation cost: ${totalFee}</p>
+        <p style={styles.text}>
+          Your total reservation cost so far: ${totalFee}
+        </p>
       </section>
     </div>
   );
