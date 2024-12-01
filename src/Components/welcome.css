@@ -1,122 +1,52 @@
-/* Welcome container 스타일 */
+/* 전체 컨테이너 스타일 */
 .welcome-container {
-  text-align: center;
-  margin-top: 25vh;
-  margin-bottom: 25vh;
-  position: relative;
-  z-index: 2;
-  color: white;
-  font-family: "Faculty Glyphic", sans-serif;
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 300;
-}
-
-/* Welcome 버튼 스타일 */
-.welcome-buttons {
-  margin-top: 40px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* 모바일에서도 중앙 정렬 */
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f7f9fc;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
 }
 
+/* 제목 스타일 */
+.welcome-container h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.welcome-container h4 {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 50px;
+}
+
+/* 버튼 컨테이너 */
+.welcome-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* 버튼 간격 */
+}
+
+/* 버튼 스타일 */
 .welcome-button {
-  width: 100vh;
-  height: 20%;
-  margin: 10px;
-  padding: 15px 20px;
-  font-size: 23px;
-  font-family: "Faculty Glyphic", sans-serif;
-  font-style: normal;
-  font-weight: 300;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  background-color: #d9d9d913;
+  width: 500px;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  font-weight: bold;
   color: white;
+  background-color: #2a4461;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+/* 버튼 hover 효과 */
 .welcome-button:hover {
-  background-color: #54556557;
-  transform: scale(1.02); /* 살짝 확대 효과 */
-  color: rgb(255, 255, 255);
-}
-
-/* 별의 배경 컨테이너 */
-.stars {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: -1; /* Welcome 텍스트와 버튼 뒤에 배치 */
-}
-
-/* 별 하나의 스타일 */
-.star {
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 50%;
-  animation: twinkle 2s infinite ease-in-out alternate;
-  opacity: 0;
-}
-
-/* 반짝이는 애니메이션 */
-@keyframes twinkle {
-  0% {
-    opacity: 0.3;
-    transform: scale(0.8);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0.3;
-    transform: scale(0.8);
-  }
-}
-
-/* Body 스타일 */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Faculty Glyphic", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  background: #00010bf3; /* 밤하늘 배경 */
-  overflow: scroll;
-}
-
-/* 반응형 미디어 쿼리 */
-@media (max-width: 768px) {
-  /* 모바일 화면에 맞춘 스타일 */
-  .welcome-container {
-    margin-top: 15vh; /* 모바일에서 더 적절한 위치 */
-    margin-bottom: 10vh;
-    font-size: 14px; /* 더 작은 폰트 크기 */
-  }
-
-  .welcome-button {
-    width: 10vh; /* 너비를 더욱 확장 */
-    height: 3vh;
-    font-size: 11px; /* 폰트 크기 축소 */
-    padding: 6px 10px;
-  }
-
-  .visualizer-container {
-    font-size: 11px; /* 텍스트 크기 줄임 */
-  }
-
-  .home-button {
-    width: 95%; /* 모바일 화면 전체 너비 활용 */
-    font-size: 11px;
-  }
-
-  .particle {
-    width: 4px;
-    height: 4px;
-  }
+  background-color: #6282a5;
+  transform: scale(1.05); /* 살짝 확대 */
 }
