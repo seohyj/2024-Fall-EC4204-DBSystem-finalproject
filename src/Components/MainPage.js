@@ -24,11 +24,6 @@ const MainPage = () => {
             Image-based AI Recommendation for your Reservation
           </button>
         </Link>
-        <Link to="/user_login/text_search">
-          <button style={styles.button}>
-            Text-based AI Recommendation for your Reservation
-          </button>
-        </Link>
         <Link to="/user_login/reservation">
           <button style={styles.button}>Make Reservation</button>
         </Link>

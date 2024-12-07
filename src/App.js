@@ -7,7 +7,6 @@ import MainPage from "./Components/MainPage.js";
 import MyPage from "./Components/MyPage.js";
 import Reservation from "./Components/menu/reservation.js";
 import ImgSearch from "./Components/menu/ImageSearch.js";
-import TextSearch from "./Components/menu/TextSearch.js";
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
         <Route path="/user_login/mypage" element={<MyPage />} />
         <Route path="/user_login/reservation" element={<Reservation />} />
         <Route path="/user_login/img_search" element={<ImgSearch />} />
-        <Route path="/user_login/text_search" element={<TextSearch />} />
       </Routes>
     </Router>
   );
