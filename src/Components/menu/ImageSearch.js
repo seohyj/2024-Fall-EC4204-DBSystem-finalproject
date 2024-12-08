@@ -47,19 +47,22 @@ const ImageSearch = () => {
       {error && <p style={styles.error}>{error}</p>}
 
       <div style={styles.resultsContainer}>
-        {results.map((result, index) => (
-          <div key={index} style={styles.resultCard}>
-            <h2 style={styles.spaceName}>{result.space_name}</h2>
-            <img
-              src={`http://localhost:5001/${result.image_path}`} // 서버에서 절대 경로 반환 필요
-              alt={result.space_name}
-              style={styles.image}
-            />
-            <p style={styles.similarity}>
-              Similarity: {result.similarity.toFixed(2)}
-            </p>
-          </div>
-        ))}
+        {results.map((result, index) => {
+          const cleanedPath = result.image_path.replace("./images/", ""); // './images/' 제거
+          return (
+            <div key={index} style={styles.resultCard}>
+              <h2 style={styles.spaceName}>{result.space_name}</h2>
+              <img
+                src={require(`../images/${cleanedPath}`).default} // 경로 수정
+                alt={result.space_name}
+                style={styles.image}
+              />
+              <p style={styles.similarity}>
+                Similarity: {result.similarity.toFixed(2)}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
