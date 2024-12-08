@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const ImageSearch = () => {
-  const [userText, setUserText] = useState(""); // 유저 입력 텍스트
+  const [TextEmbedding, setTextEmbedding] = useState(""); // 유저 입력 텍스트
   const [results, setResults] = useState([]); // 검색 결과
   const [loading, setLoading] = useState(false); // 로딩 상태
   const [error, setError] = useState(null); // 에러 메시지
 
   const handleSearch = async () => {
-    if (!userText.trim()) {
+    if (!TextEmbedding.trim()) {
       alert("Please enter a description.");
       return;
     }
@@ -18,7 +18,7 @@ const ImageSearch = () => {
 
     try {
       const response = await axios.post("http://localhost:5001/api/search", {
-        queryText: userText,
+        queryText: TextEmbedding,
       });
 
       setResults(response.data);
@@ -36,8 +36,8 @@ const ImageSearch = () => {
       <input
         type="text"
         placeholder="What kind of room are you looking for?"
-        value={userText}
-        onChange={(e) => setUserText(e.target.value)}
+        value={TextEmbedding}
+        onChange={(e) => setTextEmbedding(e.target.value)}
         style={styles.input}
       />
       <button onClick={handleSearch} style={styles.button}>
