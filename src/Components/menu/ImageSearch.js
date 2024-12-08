@@ -81,6 +81,7 @@ const styles = {
     marginBottom: "20px",
   },
   input: {
+    margin: "20px",
     width: "100%",
     padding: "10px",
     marginBottom: "10px",

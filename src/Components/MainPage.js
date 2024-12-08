@@ -12,9 +12,6 @@ const MainPage = () => {
         <div style={styles.headertext}>
           <h1>Welcome, {userName}</h1>
         </div>
-        <Link to="/user_login/mypage">
-          <button style={styles.headerbutton}>My Page</button>
-        </Link>
       </header>
 
       {/* Body */}
@@ -24,8 +21,8 @@ const MainPage = () => {
             Image-based AI Recommendation for your Reservation
           </button>
         </Link>
-        <Link to="/user_login/reservation">
-          <button style={styles.button}>Make Reservation</button>
+        <Link to="/user_login/mypage">
+          <button style={styles.button}>My Page</button>
         </Link>
       </div>
     </div>

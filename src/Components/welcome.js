@@ -11,9 +11,6 @@ const Welcome = () => {
         <Link to="/user_login">
           <button className="welcome-button">Login as User</button>
         </Link>
-        <Link to="/admin_login">
-          <button className="welcome-button">Login as Admin</button>
-        </Link>
       </div>
     </div>
   );

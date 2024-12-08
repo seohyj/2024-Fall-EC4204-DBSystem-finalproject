@@ -214,8 +214,8 @@ const styles = {
     boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
   },
   text: {
-    fontSize: "1rem",
-    color: "#666",
+    fontSize: "1.2rem",
+    color: "black",
   },
   table: {
     width: "100%",
