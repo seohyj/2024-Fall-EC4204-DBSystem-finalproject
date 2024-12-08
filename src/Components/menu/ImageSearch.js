@@ -53,7 +53,7 @@ const ImageSearch = () => {
             <div key={index} style={styles.resultCard}>
               <h2 style={styles.spaceName}>{result.space_name}</h2>
               <img
-                src={require(`../images/${cleanedPath}`).default} // 경로 수정
+                src={`/images/${cleanedPath}`} // 경로 수정
                 alt={result.space_name}
                 style={styles.image}
               />
